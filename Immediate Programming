@@ -1,3 +1,4 @@
+import java.util.*;
 public class Main {
 
     public static void main(String[] args) {
@@ -14,12 +15,18 @@ public class Main {
        for (int i = 0; i < occurrences.length; i++)   // print histogram of results
             System.out.printf("%2s  %-20s%n", i+1, barify(occurrences[i]));
     }
-
-    public static int roll(int min, int max) {
-        int range = 7 - min;
-        return (int)(Math.random() * range) + min;
+    public static int randomIndex(int lengthOfArray){
+        Random rand = new Random();
+        return rand.nextInt(lengthOfArray);
     }
-
+    public static int roll(int min, int max) {
+        int range = max - min;
+        return (int)(Math.random() * range + 1) + min;
+    }
+    public int randomint (int min, int max){
+        Random rd = new Random();
+        return rd.nextInt(min, max + 1);
+    }
     public static String barify(int value) {
         StringBuilder bar = new StringBuilder();
         for (int i = 0; i < value; i++)
